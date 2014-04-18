@@ -9,5 +9,12 @@
 .slideshow-lightbox ul{margin:0;padding:0;}
 .slideshow-lightbox ul li{float:left;display:inline;}
 .slideshow-lightbox .nav{background:#000;height:16px;width:16px;position:absolute;color:#fff;top:50%;margin-top:-8px;}
-.slideshow-lightbox .nav.prev{left:0;content:'&larr';}
-.slideshow-lightbox .nav.next{right:0;content:'&rarr';}
+.slideshow-lightbox .nav.prev{left:0;}
+.slideshow-lightbox .nav.next{right:0;}
+.modal-overlay{background:rgba(0,0,0,0.8);}
+.modal-holder{border:8px solid #fff;}
+.modal-holder .content{background:url(loader.gif) no-repeat center center #fff;min-width:16px;min-height:16px;float:left;position:relative;}
+.modal-close{position: absolute;top: -19px;right: -18px;color: #000;background: #fff;padding: 4px 10px;border-radius: 17px;float: left;z-index:1000;}
+.modal-holder .nav{background: #fff;height: 22px;width: 22px;position: absolute;top: 50%;margin-top: -8px;border-radius: 15px;padding: 0px 4px;z-index: 1000;}
+.modal-holder .nav.prev{left:4px;}
+.modal-holder .nav.next{right:4px;}

@@ -26,24 +26,92 @@ $('html').find('.slideshow-lightbox').each(function(){
 			return false;
 		})
 	).find('ul').width($(this).find('li:first').outerWidth() * $(this).find('li').size()).find('li').click(function(){
-		$('body').append(
-			$("<div/>").addClass('modal-overlay').css({'position':'fixed', 'top':0,'left':0,'bottom':0,'right':0}).click(function(){
-				$('.modal-overlay, .modal-holder').remove()
-				return false;
-			})
-		).append(
-			$("<div/>").addClass('modal-holder').css({'position':'absolute', 'top':'0','left':'50%'}).append(
+		$(this).parent().find('li.active').removeClass('active')
+		$(this).addClass('active')
+		elem = $(this)
+		if(!$('.modal-overlay')[0]){
+			$('body').append(
+				$("<div/>").addClass('modal-overlay').hide().css({'position':'fixed', 'top':0,'left':0,'bottom':0,'right':0}).click(function(){
+					$('.modal-overlay, .modal-holder').fadeOut(function(){
+						$(this).remove()
+					})
+					return false;
+				}).fadeIn()
+			).append(
+				$("<div/>").addClass('modal-holder').css({'position':'absolute', 'top':($(window).height() / 2 - 4) + $(window).scrollTop(),'left':'50%', 'marginLeft':'-8px'}).append(
+					$('<div/>').addClass('content').height(16).width(16).append(
+						$('<img/>').attr({"src":$(this).data('big')}).hide().load(function(){
+							$(".modal-holder").animate({"marginLeft":-($(this).width() / 2), "top":($(window).height() / 2 - $(this).height() / 2) + $(window).scrollTop()})
+							img = $(this)
+							$(".modal-holder .content").animate({'width':$(this).width(), 'height':$(this).height()}, function(){
+								img.fadeIn()
+								if(elem.next()[0]){
+									$(".modal-holder .content").append(
+										$('<a/>').addClass('nav next').html('&rarr;').click(function(){
+											$(".modal-holder .content img").fadeOut(function(){
+												$(".modal-close").hide()
+												$(".modal-holder .content .nav").hide()
+												$('.modal-holder').animate({'top':($(window).height() / 2 - 4) + $(window).scrollTop(),'left':'50%', 'marginLeft':'-8px'})
+												$(this).remove()
+												img = $(this)
+												$(".modal-holder .content").animate({'width':16, 'height':16}, function(){
+													elem.parent().find('li.active').next().click();
+												})
+											})
+										})
+									)
+								}
+								if(elem.prev()[0]){
+									$(".modal-holder .content").prepend(
+										$('<a/>').addClass('nav prev').html('&larr;').click(function(){
+											$(".modal-holder .content img").fadeOut(function(){
+												$(".modal-close").hide()
+												$(".modal-holder .content .nav").hide()
+												$('.modal-holder').animate({'top':($(window).height() / 2 - 4) + $(window).scrollTop(),'left':'50%', 'marginLeft':'-8px'})
+												$(this).remove()
+												$(".modal-holder .content").animate({'width':16, 'height':16}, function(){
+													elem.parent().find('li.active').prev().click();
+												})
+											})
+										})
+									)
+								}
+								$(".modal-close").show()
+							})
+						})
+					).append(
+						$("<a/>").addClass('modal-close').hide().text('x').click(function(){
+							$('.modal-overlay, .modal-holder').fadeOut(function(){
+								$(this).remove()
+							})
+							return false;
+						})
+					)
+				)
+			)
+		}else{
+			$('.content img').remove()
+			$('.content').append(
 				$('<img/>').attr({"src":$(this).data('big')}).hide().load(function(){
-					$(".modal-holder").css({"marginLeft":-($(this).width() / 2), "top":($(window).height() / 2 - $(this).height() / 2) + $(window).scrollTop()})
-					$(this).show()
+					$(".modal-holder").animate({"marginLeft":-($(this).width() / 2), "top":($(window).height() / 2 - $(this).height() / 2) + $(window).scrollTop()})
+					img = $(this)
+					$(".modal-holder .content").animate({'width':$(this).width(), 'height':$(this).height()}, function(){
+						$(".modal-close").show()
+						img.fadeIn()
+						if(elem.prev()[0]){
+							$(".modal-holder .content .nav.prev").show()
+						}else{
+							$(".modal-holder .content .nav.prev").hide()
+						}
+						if(elem.next()[0]){
+							$(".modal-holder .content .nav.next").show()
+						}else{
+							$(".modal-holder .content .nav.next").hide()
+						}
+					})
 				})
 			)
-		).append(
-			$("<a/>").addClass('close').css({'position':'fixed', 'top':20,'right':20}).click(function(){
-				$('.modal-overlay, .modal-holder').remove()
-				return false;
-			})
-		)
+		}
 		$(window).resize(function(){
 			$(".modal-holder").css({"marginLeft":-($('.modal-holder img').width() / 2), "top":($(window).height() / 2 - $('.modal-holder img').height() / 2) + $(window).scrollTop()})
 		})
