@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Slideshow with lightbox</title>
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Slideshow with lightbox</h1>
+			<p>
+				Hey this is a really easy and editable thumbnails slideshow with lightbox you ever seen
+			</p>
+			<hr/>
+			<p>
+				You'll need this <a href="slideshow-lightbox.js">js</a> file and this html below to the things work nice and easy.
+			</p>
+			<pre>
+&lt;div class="slideshow-lightbox"&gt;
+  &lt;ul&gt;
+    &lt;li data-big="images/big-slide-1.jpg"&gt;
+	  &lt;img src="images/thumb-slide-1.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-2.jpg"&gt;
+	  &lt;img src="images/thumb-slide-2.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-3.jpg"&gt;
+	  &lt;img src="images/thumb-slide-3.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-4.jpg"&gt;
+	  &lt;img src="images/thumb-slide-4.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-5.jpg"&gt;
+	  &lt;img src="images/thumb-slide-5.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-6.jpg"&gt;
+	  &lt;img src="images/thumb-slide-6.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-7.jpg"&gt;
+	  &lt;img src="images/thumb-slide-7.jpg" alt=""&gt;
+    &lt;/li&gt;
+    &lt;li data-big="images/big-slide-8.jpg"&gt;
+	  &lt;img src="images/thumb-slide-8.jpg" alt=""&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+			</pre>
+			<p>
+				You'll have to put your images (thumbnails and big ones) and the plugin will change the html to this:
+			</p>
+			<pre>
+&lt;div class="slideshow-lightbox"&gt;
+  &lt;a href="#" class="nav prev"&gt;&lt;/a&gt;
+  &lt;div class="holder"&gt;
+    &lt;ul&gt;
+      &lt;li data-big="images/big-slide-1.jpg"&gt;
+	    &lt;img src="images/thumb-slide-1.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-2.jpg"&gt;
+	    &lt;img src="images/thumb-slide-2.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-3.jpg"&gt;
+	    &lt;img src="images/thumb-slide-3.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-4.jpg"&gt;
+	    &lt;img src="images/thumb-slide-4.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-5.jpg"&gt;
+	    &lt;img src="images/thumb-slide-5.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-6.jpg"&gt;
+  	    &lt;img src="images/thumb-slide-6.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-7.jpg"&gt;
+	    &lt;img src="images/thumb-slide-7.jpg" alt=""&gt;
+      &lt;/li&gt;
+      &lt;li data-big="images/big-slide-8.jpg"&gt;
+	    &lt;img src="images/thumb-slide-8.jpg" alt=""&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;a href="#" class="nav prev"&gt;&lt;/a&gt;
+&lt;/div&gt;
+			</pre>
+			<p>
+				And the lightbox:
+			</p>
+			<pre>
+&lt;div class="modal-overlay"&gt;
+&lt;/div&gt;
+&lt;div class="modal-holder"&gt;
+  &lt;img src="images/big-slide-1.jpg"/&gt;
+&lt;/div&gt;
+&lt;a href='#' class'close'&gt;&lt;/a&gt;
+			</pre>	
+			<p>
+				Here is a demo now with 800px of width
+			</p>
+			<div class="well container w960">
+				<div class="slideshow-lightbox w800">
+					<ul>
+						<li data-big="images/big-slide-1.jpg">
+							<img src="images/thumb-slide-1.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-2.jpg">
+							<img src="images/thumb-slide-2.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-3.jpg">
+							<img src="images/thumb-slide-3.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-4.jpg">
+							<img src="images/thumb-slide-4.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-5.jpg">
+							<img src="images/thumb-slide-5.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-6.jpg">
+							<img src="images/thumb-slide-6.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-7.jpg">
+							<img src="images/thumb-slide-7.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-8.jpg">
+							<img src="images/thumb-slide-8.jpg" alt="">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p>
+				And this is with 400px of width
+			</p>
+			<div class="well container w960">
+				<div class="slideshow-lightbox w400">
+					<ul>
+						<li data-big="images/big-slide-1.jpg">
+							<img src="images/thumb-slide-1.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-2.jpg">
+							<img src="images/thumb-slide-2.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-3.jpg">
+							<img src="images/thumb-slide-3.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-4.jpg">
+							<img src="images/thumb-slide-4.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-5.jpg">
+							<img src="images/thumb-slide-5.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-6.jpg">
+							<img src="images/thumb-slide-6.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-7.jpg">
+							<img src="images/thumb-slide-7.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-8.jpg">
+							<img src="images/thumb-slide-8.jpg" alt="">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p>
+				And this is with 880px of width
+			</p>
+			<div class="well container w960">
+				<div class="slideshow-lightbox w940">
+					<ul>
+						<li data-big="images/big-slide-1.jpg">
+							<img src="images/thumb-slide-1.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-2.jpg">
+							<img src="images/thumb-slide-2.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-3.jpg">
+							<img src="images/thumb-slide-3.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-4.jpg">
+							<img src="images/thumb-slide-4.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-5.jpg">
+							<img src="images/thumb-slide-5.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-6.jpg">
+							<img src="images/thumb-slide-6.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-7.jpg">
+							<img src="images/thumb-slide-7.jpg" alt="">
+						</li>
+						<li data-big="images/big-slide-8.jpg">
+							<img src="images/thumb-slide-8.jpg" alt="">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p>
+				Any doubt? Any request? Any propose to enhance the thing? Your comment will be very appreciated. May the odds be ever in your favor.
+			</p>
+			<div>
+			    <div id="disqus_thread"></div>
+			    <script type="text/javascript">
+			        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			        var disqus_shortname = 'alrp'; // required: replace example with your forum shortname
+
+			        /* * * DON'T EDIT BELOW THIS LINE * * */
+			        (function() {
+			            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			        })();
+			    </script>
+			    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</div>
+		</div>
+	</body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="slideshow-lightbox.js"></script>
+</html>
